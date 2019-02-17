@@ -7,10 +7,10 @@ const requestHandler = (req, res) => {
      req.socket.remoteAddress ||
      (req.connection.socket ? req.connection.socket.remoteAddress : null);
 
-    var msg = '[REQ] ' + new Date().toString().replace(/T/, ':').replace(/\.\w*/, '') + '\n' + ip + '\n';
+    var msg = '[NodeJSProxyListener] ' + ip;
 
     console.log(msg);
-    res.end('Hello Node.js Server!\n' + msg);
+    res.end(msg);
 }
 
 const server = http.createServer(requestHandler)
